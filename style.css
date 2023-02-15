@@ -7,41 +7,56 @@
 body, html {
     height: 100%;
 }
-body {
-    display: grid;
-    grid-template-columns: 2fr 7fr;
-    grid-template-rows: 2fr 11fr;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 p {
     color: rgb(95, 95, 95);
     font-weight: 500;
 }
+
+body {
+    display: grid;
+    grid-template-columns: minmax(22rem, 27rem) 1fr;
+    grid-template-rows: 12rem 1fr;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .sidebar {
     background-color: #1992d4;
     grid-column: 1 / 2;
     grid-row: 1 / -1;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 2fr repeat(6, 1fr) 2fr 1fr 1fr 4fr;
+    grid-template-columns: minmax(6rem, 9rem) 1fr;
+    grid-template-rows: 2fr repeat(6, 1fr) 2fr 1fr 1fr 400px;
+    align-items: center;
+    column-gap: 1px;
+    justify-items: start;
 }
 .sidebar-header{
     grid-row: 1 / 2;
-    font-size: 30px;
+    font-size: 35px;
 }
 .sidebar-header ~ div{
-    font-size: 20px;
+    font-size: 25px;
 }
 .sidebar div{
     display: grid;
-    align-items: center;
     font-weight: 600;
     color: white;
+    justify-self: start;
 }
-.sidebar div[class$='svg']{
+.sidebar svg:first-of-type{
+    width: 5rem;
+}
+.sidebar svg{
     grid-column: 1 / 2;
-    /* margin-left: 1rem; */
+    width: 2.5rem;
+    justify-self: center;
+    fill: white;
+}
+.sidebar .settings,
+.sidebar svg:nth-of-type(8){
+    align-self: end;
+    margin-bottom: 1.25rem;
 }
 
 .header {
@@ -58,6 +73,83 @@ p {
 }
 .header div{
     display: flex;
+    width: 100%;
+    align-items: center;
+}
+.header .search-container{
+    justify-content: flex-start;
+    margin-left: 10rem;
+}
+.header .search-container > svg {
+    width: 3rem;
+    margin-right: 1rem;
+}
+.header .search-container input {
+    background-color: #e2e8f0;
+    border: none;
+    border-radius: 50px;
+    color: #333;
+    font-size: 16px;
+    padding: 0.25rem;
+    padding-left: 1rem;
+    width: clamp(40rem, 70rem, 80rem);
+    height: 3rem;
+    box-shadow: 0px 3px 8px -3px #888;
+}
+.header .search-container input:focus {
+    outline: none;
+}
+.header .notification-container {
+    justify-content: flex-end;
+}
+.header .notification-container > svg {
+    width: 2.5rem;
+    margin-right: 3rem;
+}
+.header .notification-container > img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 10rem;
+    margin-right: 1rem;
+}
+.header .notification-container .profile-name {
+    margin-right: 4rem;
+}
+.header .welcome-container > img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 20rem;
+    margin-right: 2rem;
+    margin-left: 8rem;
+    margin-top: 0;
+}
+.header .welcome-container .welcome-message{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    font-weight: 800;
+}
+.header .welcome-container .welcome-message h1{
+    margin: 0;
+}
+.header .button-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.header .button-container button{
+    width: 9rem;
+    height: 4rem;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    background-color: #1992d4;
+    font-weight: 800;
+    font-size: 20px;
+    gap: 1rem;
+}
+.header .button-container :last-child{
+    margin-right: 2rem;
 }
 
 
@@ -71,15 +163,22 @@ p {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     display: grid;
-    grid-template-columns: 9fr 3fr;
+    grid-template-columns: 1rem 9fr 3fr;
     grid-template-rows: 1fr;
     gap: 2rem;
     height: 100%;
     width: 100%;
-    padding-left: 2rem;
 }
+.main-content .card {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 3px 3px 8px -3px #888;
+}
+
 .your-projects{
     display: grid;
+    grid-column: 2/ 3;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 5fr 5fr 5fr 1fr;
     gap: 1rem;
@@ -103,19 +202,14 @@ p {
 .your-projects .card > p {
     margin-right: 2rem;
 }
-.main-content .card {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    box-shadow: 3px 3px 8px -3px #888;
-}
+
 
 
 
 .side-container {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 1fr 2.5rem;
+    grid-template-columns: 1fr 2rem;
     grid-template-rows: 1fr 8fr 1fr 8fr 1fr;
     gap: 1rem;
     height: 100%;
@@ -129,8 +223,6 @@ p {
     gap: 1.5rem;
 }
 .side-container .announcements-card{
-    /* margin-left: 1rem; */
-    /* margin-right: 2rem; */
     border-bottom: 0.5px solid rgb(136, 128, 128);
 }
 
