@@ -25,7 +25,7 @@ body {
     grid-row: 1 / -1;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: minmax(6rem, 9rem) 1fr;
+    grid-template-columns: 8rem 1fr;
     grid-template-rows: 2fr repeat(6, 1fr) 2fr 1fr 1fr 400px;
     align-items: center;
     column-gap: 1px;
@@ -259,7 +259,6 @@ body {
     border-radius: 10rem;
     grid-column: 1 / 2;
 }
-
 
 
 
